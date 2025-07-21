@@ -1,0 +1,401 @@
+.mood-bg-gradient {
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(120deg, #e0e7ff 0%, #fff6f6 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 3rem;
+}
+.mood-header {
+  display: flex;
+  align-items: center;
+  margin-top: 2.5rem;
+  margin-bottom: 0.2rem;
+  font-family: 'Nunito', 'Segoe UI', sans-serif;
+}
+.mood-header-emoji {
+  font-size: 2.2rem;
+  margin-right: 0.5rem;
+}
+.mood-header-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #7c3aed;
+  letter-spacing: 0.5px;
+}
+.mood-header-desc {
+  font-size: 1.15rem;
+  color: #444b5a;
+  margin-bottom: 2.2rem;
+  text-align: center;
+  font-family: 'Nunito', 'Segoe UI', sans-serif;
+}
+.mood-main-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(180, 200, 200, 0.10);
+  padding: 2.2rem 2.5rem 2.5rem 2.5rem;
+  min-width: 340px;
+  max-width: 520px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: 2.5rem;
+}
+.mood-today-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+}
+.mood-today-date {
+  font-size: 1.1rem;
+  color: #7c3aed;
+  font-weight: 700;
+  background: #f3e8ff;
+  border-radius: 8px;
+  padding: 0.3em 0.8em;
+}
+.mood-greeting {
+  color: #b197fc;
+  font-size: 1.08rem;
+  font-weight: 500;
+}
+.mood-emoji-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7em;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+.mood-emoji-btn {
+  background: #f3e8ff;
+  border: none;
+  border-radius: 50%;
+  width: 3.2em;
+  height: 3.2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7em;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #e0e7ff33;
+  transition: background 0.15s, box-shadow 0.15s, transform 0.12s;
+  outline: none;
+  position: relative;
+}
+.mood-emoji-btn.selected, .mood-emoji-btn:focus {
+  background: #ffe066 !important;
+  box-shadow: 0 4px 16px #ffe06655;
+  transform: scale(1.08);
+}
+.mood-emoji-btn:hover {
+  background: #e0e7ff;
+  transform: scale(1.06);
+}
+.mood-emoji {
+  font-size: 1.3em;
+}
+.mood-emoji-label {
+  font-size: 0.7em;
+  color: #7c3aed;
+  margin-top: 0.1em;
+  font-weight: 600;
+}
+.mood-note-section {
+  margin-top: 1.2em;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.7em;
+}
+.mood-note-label {
+  color: #b197fc;
+  font-size: 1.05em;
+  font-weight: 600;
+}
+.mood-note-input {
+  border: 1.5px solid #e0e7ff;
+  border-radius: 10px;
+  background: #f8f7ff;
+  color: #3a3a3a;
+  font-size: 1.08em;
+  padding: 0.7em 1em;
+  resize: vertical;
+  min-height: 2.5em;
+  box-shadow: 0 2px 8px #e0e7ff22;
+  transition: border 0.15s, box-shadow 0.15s;
+}
+.mood-note-input:focus {
+  border: 1.5px solid #b197fc;
+  outline: none;
+  box-shadow: 0 4px 16px #e0e7ff55;
+}
+.mood-save-btn {
+  width: 100%;
+  background: linear-gradient(90deg, #7c3aed 0%, #ffe066 100%);
+  color: #fff;
+  font-size: 1.13rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  padding: 0.9em 0;
+  margin-top: 0.7em;
+  box-shadow: 0 2px 8px #e0e7ff33;
+  cursor: pointer;
+  transition: background 0.15s, box-shadow 0.15s;
+}
+.mood-save-btn:hover, .mood-save-btn:focus {
+  background: linear-gradient(90deg, #ffe066 0%, #7c3aed 100%);
+  box-shadow: 0 4px 16px #e0e7ff55;
+}
+.mood-history-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #7c3aed;
+  margin-bottom: 1.1rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+.mood-history-list {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1em;
+}
+.mood-history-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px #e0e7ff22;
+  padding: 1.1em 1.5em 1.1em 1.2em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+  border-left: 6px solid #ffe066;
+}
+.mood-history-row {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.mood-history-emoji {
+  font-size: 1.5em;
+  margin-right: 0.2em;
+}
+.mood-history-label {
+  font-size: 1.1em;
+  color: #7c3aed;
+  font-weight: 700;
+}
+.mood-history-date {
+  font-size: 0.98em;
+  color: #b197fc;
+  margin-left: auto;
+}
+.mood-history-note {
+  color: #444b5a;
+  font-size: 1.01em;
+  margin-left: 2.2em;
+  margin-top: 0.2em;
+  font-style: italic;
+}
+.mood-history-empty {
+  color: #bbb;
+  font-size: 0.98em;
+  margin-top: 0.2em;
+  text-align: center;
+}
+.mood-quote {
+  text-align: center;
+  color: #e6b800;
+  font-size: 1.13em;
+  font-weight: 600;
+  margin-bottom: 1.2em;
+  margin-top: 0.2em;
+  background: #fffbe6;
+  border-radius: 10px;
+  padding: 0.5em 1em;
+  box-shadow: 0 2px 8px #ffe06622;
+}
+.mood-time-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  margin: 0.7em 0 0.2em 0;
+}
+.mood-time-label {
+  color: #b197fc;
+  font-size: 1em;
+  font-weight: 500;
+}
+.mood-time-select {
+  border: 1.5px solid #e0e7ff;
+  border-radius: 8px;
+  background: #f8f7ff;
+  color: #3a3a3a;
+  font-size: 1em;
+  padding: 0.2em 0.7em;
+  outline: none;
+  transition: border 0.15s;
+}
+.mood-time-select:focus {
+  border: 1.5px solid #b197fc;
+}
+.mood-tags-row {
+  margin: 0.7em 0 0.2em 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7em;
+  flex-wrap: wrap;
+}
+.mood-tags-label {
+  color: #b197fc;
+  font-size: 1em;
+  font-weight: 500;
+  margin-top: 0.2em;
+}
+.mood-tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+}
+.mood-tag-btn {
+  background: #f3e0ff;
+  color: #7c3aed;
+  border: none;
+  border-radius: 8px;
+  padding: 0.3em 0.9em;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  box-shadow: 0 2px 8px #e3e0ff22;
+}
+.mood-tag-btn.selected, .mood-tag-btn:focus {
+  background: #b197fc;
+  color: #fff;
+}
+.mood-tag-btn:hover {
+  background: #ffd6e0;
+  color: #d6336c;
+}
+.mood-history-time {
+  font-size: 0.98em;
+  color: #e6b800;
+  margin-left: 1em;
+  background: #fffbe6;
+  border-radius: 6px;
+  padding: 0.1em 0.7em;
+  font-weight: 600;
+}
+.mood-history-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  margin-left: 2.2em;
+  margin-top: 0.2em;
+}
+.mood-history-tag {
+  background: #f3e0ff;
+  color: #7c3aed;
+  border-radius: 8px;
+  padding: 0.2em 0.7em;
+  font-size: 0.98em;
+  font-weight: 500;
+}
+.mood-week-bar-title {
+  font-size: 1.08em;
+  color: #b197fc;
+  font-weight: 700;
+  margin: 2.2em 0 0.5em 0;
+  text-align: center;
+}
+.mood-week-bar {
+  display: flex;
+  gap: 0.5em;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.5em;
+  min-height: 2.5em;
+}
+.mood-week-bar-emoji {
+  font-size: 1.6em;
+  border-radius: 50%;
+  width: 2.2em;
+  height: 2.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px #e0e7ff33;
+  background: #f3e0ff;
+  transition: background 0.15s;
+}
+.mood-week-bar-empty {
+  color: #bbb;
+  font-size: 1em;
+  font-style: italic;
+}
+.mood-all-title {
+  font-size: 1.13em;
+  color: #7c3aed;
+  font-weight: 700;
+  margin: 2.2em 0 0.5em 0;
+  text-align: center;
+}
+.mood-all-list {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto 2.5em auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1em;
+}
+.mood-week-bar-graph {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto 2.5em auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px #e0e7ff22;
+  padding: 1.1em 1.5em 0.5em 1.5em;
+}
+.mood-week-bar-emojis {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 420px;
+  margin: 0.2em auto 0.2em auto;
+  gap: 0.5em;
+}
+.mood-week-bar-emoji-label {
+  font-size: 1.3em;
+  text-align: center;
+  width: 2.2em;
+  display: inline-block;
+  color: #7c3aed;
+  user-select: none;
+}
+.mood-chart-tooltip {
+  background: #fffbe6;
+  color: #7c3aed;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #ffe06622;
+  padding: 0.7em 1.2em;
+  font-size: 1em;
+  font-weight: 600;
+  text-align: center;
+}
+@media (max-width: 700px) {
+  .mood-main-card, .mood-history-list {
+    max-width: 98vw;
+    min-width: 0;
+    padding: 1.1rem 0.5rem 1.5rem 0.5rem;
+  }
+} 

@@ -1,0 +1,243 @@
+/* Pastel gradient background and layout */
+.affirmations-bg {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #ffe0f7 0%, #fffde4 100%);
+  padding: 0 0 48px 0;
+}
+.affirmations-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-top: 32px;
+  margin-bottom: 0.2em;
+  letter-spacing: -1px;
+}
+.affirmations-emoji {
+  font-size: 2.2em;
+  margin-right: 0.4em;
+}
+.affirmations-title {
+  color: #d6336c;
+  font-size: 2.1rem;
+  font-weight: 800;
+}
+.affirmations-subtitle {
+  text-align: center;
+  color: #b197fc;
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  margin-top: 0.2em;
+}
+.affirmations-main-cards {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center; /* vertically center cards */
+}
+.affirmations-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 #e3e0ff33;
+  padding: 2.2rem 2.2rem 2.5rem 2.2rem;
+  min-width: 340px;
+  max-width: 520px;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+.affirmations-left-card {
+  margin-right: 0;
+}
+.affirmations-right-card {
+  margin-left: 0;
+}
+.affirmations-section-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  margin-bottom: 0.7em;
+  letter-spacing: -0.5px;
+}
+.affirmations-motivation-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5em 0;
+  color: #444;
+  font-size: 1.08rem;
+}
+.affirmations-motivation-list li {
+  margin-bottom: 0.5em;
+  color: #b197fc;
+  font-weight: 500;
+}
+.affirmations-prebuilt-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.affirmations-prebuilt-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5em;
+}
+.affirmations-prebuilt-btn {
+  background: #ffe0f7;
+  border: none;
+  border-radius: 50%;
+  color: #d6336c;
+  font-size: 1.1em;
+  width: 2em;
+  height: 2em;
+  margin-right: 0.7em;
+  cursor: pointer;
+  transition: background 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 8px #e3e0ff33;
+  outline: none;
+}
+.affirmations-prebuilt-btn:hover, .affirmations-prebuilt-btn:focus {
+  background: #ffd6e0;
+  box-shadow: 0 4px 16px #e3e0ff55;
+}
+.affirmations-prebuilt-text {
+  cursor: pointer;
+  color: #6c3483;
+  font-size: 1.05em;
+  outline: none;
+  border-radius: 6px;
+  padding: 2px 4px;
+  transition: background 0.15s;
+}
+.affirmations-prebuilt-text:hover, .affirmations-prebuilt-text:focus {
+  background: #f3e0ff;
+}
+.affirmations-textarea {
+  width: 100%;
+  min-height: 260px; /* even larger */
+  font-size: 1.22rem;
+  border-radius: 16px;
+  border: 2px solid #b197fc;
+  padding: 1.7em 1.3em;
+  margin-bottom: 1.2em;
+  margin-top: 0.5em;
+  background: #f8f7ff;
+  color: #3a3a3a;
+  resize: vertical;
+  box-shadow: 0 2px 12px #e3e0ff22;
+  transition: border 0.15s, box-shadow 0.15s;
+  align-self: center;
+  display: block;
+}
+.affirmations-textarea:focus {
+  border: 2px solid #a3b18a;
+  outline: none;
+  box-shadow: 0 4px 16px #e3e0ff55;
+}
+.affirmations-stickers-row {
+  display: flex;
+  align-items: center;
+  gap: 1.1em;
+  margin-bottom: 1.2em;
+}
+.affirmations-stickers-list {
+  display: flex;
+  gap: 0.4em;
+}
+.affirmations-sticker-btn {
+  background: #fffde4;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.25em;
+  width: 2em;
+  height: 2em;
+  cursor: pointer;
+  margin-right: 0.1em;
+  transition: background 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 8px #ffe0f755;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.affirmations-sticker-btn.bullet {
+  font-size: 1.1em;
+  color: #b197fc;
+  background: #f3e0ff;
+  width: 1.7em;
+  height: 1.7em;
+}
+.affirmations-sticker-btn.bullet:hover, .affirmations-sticker-btn.bullet:focus {
+  background: #e3e0ff;
+  color: #a3b18a;
+}
+.affirmations-save-btn {
+  width: 100%;
+  background: linear-gradient(90deg, #ff5fa2 0%, #ffb6b9 100%);
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  padding: 0.9em 0;
+  margin-top: 0.7em;
+  box-shadow: 0 2px 8px #e3e0ff33;
+  cursor: pointer;
+  transition: background 0.15s, box-shadow 0.15s;
+}
+.affirmations-save-btn:hover, .affirmations-save-btn:focus {
+  background: linear-gradient(90deg, #ffb6b9 0%, #ff5fa2 100%);
+  box-shadow: 0 4px 16px #e3e0ff55;
+}
+.affirmations-date-picker {
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+  font-size: 1.1em;
+}
+.affirmations-date-input {
+  border: 1.5px solid #e3e0ff;
+  border-radius: 8px;
+  background: #f8f7ff;
+  color: #3a3a3a;
+  font-size: 1em;
+  padding: 0.2em 0.6em;
+  outline: none;
+  transition: border 0.15s;
+}
+.affirmations-date-input:focus {
+  border: 1.5px solid #b197fc;
+}
+.affirmations-history-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin-top: 0.5em;
+}
+.affirmations-history-btn {
+  background: #f3e0ff;
+  color: #6c3483;
+  border: none;
+  border-radius: 8px;
+  padding: 0.3em 0.9em;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  box-shadow: 0 2px 8px #e3e0ff22;
+}
+.affirmations-history-btn.selected, .affirmations-history-btn:focus {
+  background: #b197fc;
+  color: #fff;
+}
+.affirmations-history-btn:hover {
+  background: #ffd6e0;
+  color: #d6336c;
+}
+.affirmations-history-empty {
+  color: #bbb;
+  font-size: 0.98em;
+  margin-top: 0.2em;
+} 

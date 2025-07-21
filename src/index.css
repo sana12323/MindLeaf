@@ -1,0 +1,116 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(120deg, #8688f8 0%, #5eff83 100%); /* pastel pinkish gradient */
+  color: #3a3a3a;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+  background: #f3f3f7;
+  color: #7d7d7d;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+.auth-container {
+  background: #f9c6e8;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px 0 #e3e0ff33;
+  max-width: 370px;
+  margin: 4rem auto 0 auto;
+  padding: 2.5rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-container h2 {
+  margin-bottom: 1.5rem;
+  color: #c77dff;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.auth-error {
+  background: #ffe0e0;
+  color: #b00020;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.auth-container form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.auth-container input[type="email"],
+.auth-container input[type="password"] {
+  padding: 0.8rem 1rem;
+  border: 1.5px solid #e3e0ff;
+  border-radius: 0.7rem;
+  font-size: 1rem;
+  background: #fff8ff;
+  transition: border 0.2s;
+}
+
+.auth-container input:focus {
+  border-color: #c77dff;
+  outline: none;
+}
+
+.auth-container button[type="submit"],
+.google-btn {
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 0.7rem;
+  background: linear-gradient(90deg, #c77dff 0%, #ffe0ef 100%);
+  color: #3a3a3a;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px 0 #e3e0ff33;
+}
+
+.auth-container button[type="submit"]:hover,
+.google-btn:hover {
+  background: linear-gradient(90deg, #a3b18a 0%, #ffe0ef 100%);
+  color: #222;
+}
+
+.google-btn {
+  background: linear-gradient(90deg, #ffe0ef 0%, #c77dff 100%);
+  color: #3a3a3a;
+  margin-bottom: 1rem;
+}
+
+.auth-link {
+  margin-top: 0.5rem;
+  color: #555;
+  font-size: 1rem;
+}
+
+.auth-link a {
+  color: #c77dff;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.auth-link a:hover {
+  color: #a3b18a;
+}
