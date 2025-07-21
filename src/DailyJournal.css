@@ -70,8 +70,7 @@
   position: relative;
   width: 90vw;
   max-width: 980px;
-  min-height: 70vh;
-  height: 70vh;
+  min-height: 320px;
   margin-bottom: 32px;
   overflow: auto;
   background: none;
@@ -79,7 +78,8 @@
 
 .journal-notepad {
   width: 100%;
-  min-height: 70vh;
+  min-height: 320px;
+  max-height: 80vh;
   background: #fffefb;
   border-radius: 18px;
   box-shadow: 0 4px 32px 0 #e3e0ff33;
@@ -92,6 +92,8 @@
   line-height: 1.7;
   font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   z-index: 1;
+  overflow-y: auto;
+  resize: vertical;
 }
 
 .journal-notepad:focus {
@@ -162,6 +164,31 @@
   background: #f6f1f1;
 }
 
+.reset-btn {
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  background: #fff;
+  border: 1.5px solid #e3e0ff;
+  border-radius: 50%;
+  color: #588157;
+  font-size: 1.1rem;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px 0 #e3e0ff22;
+  z-index: 10;
+  transition: border 0.2s, background 0.2s, color 0.2s;
+}
+.reset-btn:hover {
+  border: 1.5px solid #588157;
+  background: #f6f1f1;
+  color: #e3e0ff;
+}
+
 .journal-image-rnd {
   position: absolute !important;
   z-index: 2;
@@ -202,18 +229,22 @@
 
 /* Make react-rnd resize handles more visible */
 .journal-sticker-rnd .react-resizable-handle, .journal-image-rnd .react-resizable-handle {
-  width: 16px !important;
-  height: 16px !important;
-  background: #a3b18a99;
+  width: 22px !important;
+  height: 22px !important;
+  background: linear-gradient(135deg, #a3b18a 60%, #e3e0ff 100%);
   border-radius: 50%;
-  border: 2px solid #fff;
-  box-shadow: 0 2px 8px 0 #e3e0ff22;
-  opacity: 0.85;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 16px 0 #a3b18a44, 0 2px 8px 0 #e3e0ff44;
+  opacity: 0.95;
+  transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
+  z-index: 20;
 }
 
 .journal-sticker-rnd .react-resizable-handle:hover, .journal-image-rnd .react-resizable-handle:hover {
-  background: #588157;
+  background: linear-gradient(135deg, #588157 70%, #ffe066 100%);
   opacity: 1;
+  transform: scale(1.18);
+  box-shadow: 0 6px 24px 0 #58815755, 0 2px 8px 0 #ffe06655;
 } 
 
 .save-btn {

@@ -38,12 +38,28 @@ const DailyJournal = () => {
   const [historyLoading, setHistoryLoading] = useState(false);
   const fileInputRef = useRef();
   const notepadRef = useRef();
+  const [notepadSize, setNotepadSize] = useState({ width: 0, height: 0 });
 
   // Load journal entry for selected date
   useEffect(() => {
     loadJournal(date);
     // eslint-disable-next-line
   }, [date]);
+
+  // Track notepad size for dynamic bounds
+  useEffect(() => {
+    function updateSize() {
+      if (notepadRef.current) {
+        setNotepadSize({
+          width: notepadRef.current.offsetWidth,
+          height: notepadRef.current.offsetHeight,
+        });
+      }
+    }
+    updateSize();
+    window.addEventListener('resize', updateSize);
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
 
   const loadJournal = async (dateToLoad) => {
     setLoading(true);
@@ -116,6 +132,14 @@ const DailyJournal = () => {
 
   const removeImage = (id) => {
     setImages(images.filter(img => img.id !== id));
+  };
+
+  // Reset sticker/image to default size/position
+  const resetSticker = (id) => {
+    setStickers(stickers.map(s => s.id === id ? { ...s, ...defaultStickerSize, x: 40, y: 40 } : s));
+  };
+  const resetImage = (id) => {
+    setImages(images.map(img => img.id === id ? { ...img, ...defaultImageSize, x: 60, y: 60 } : img));
   };
 
   // Save journal entry
@@ -217,17 +241,22 @@ const DailyJournal = () => {
             position={{ x: sticker.x, y: sticker.y }}
             minWidth={minStickerSize.width}
             minHeight={minStickerSize.height}
-            maxWidth={maxStickerSize.width}
-            maxHeight={maxStickerSize.height}
+            maxWidth={Math.max(minStickerSize.width, notepadSize.width)}
+            maxHeight={Math.max(minStickerSize.height, notepadSize.height)}
             onDragStop={(e, d) => updateSticker(sticker.id, { x: d.x, y: d.y })}
-            onResizeStop={(e, direction, ref, delta, position) =>
+            onResizeStop={(e, direction, ref, delta, position) => {
+              // Prevent overflow on resize
+              let width = parseInt(ref.style.width);
+              let height = parseInt(ref.style.height);
+              width = Math.min(width, notepadSize.width);
+              height = Math.min(height, notepadSize.height);
               updateSticker(sticker.id, {
-                width: parseInt(ref.style.width),
-                height: parseInt(ref.style.height),
+                width,
+                height,
                 ...position,
-              })
-            }
-            bounds="parent"
+              });
+            }}
+            bounds=".journal-notepad"
             className="journal-sticker-rnd"
             enableResizing={{
               top: true, right: true, bottom: true, left: true,
@@ -240,6 +269,7 @@ const DailyJournal = () => {
             <div className="journal-sticker">
               {sticker.emoji}
               <button className="remove-btn" onClick={() => removeSticker(sticker.id)} title="Remove sticker">✖</button>
+              <button className="reset-btn" onClick={() => resetSticker(sticker.id)} title="Reset sticker size/position">↺</button>
             </div>
           </Rnd>
         ))}
@@ -250,17 +280,22 @@ const DailyJournal = () => {
             position={{ x: img.x, y: img.y }}
             minWidth={minImageSize.width}
             minHeight={minImageSize.height}
-            maxWidth={maxImageSize.width}
-            maxHeight={maxImageSize.height}
+            maxWidth={Math.max(minImageSize.width, notepadSize.width)}
+            maxHeight={Math.max(minImageSize.height, notepadSize.height)}
             onDragStop={(e, d) => updateImage(img.id, { x: d.x, y: d.y })}
-            onResizeStop={(e, direction, ref, delta, position) =>
+            onResizeStop={(e, direction, ref, delta, position) => {
+              // Prevent overflow on resize
+              let width = parseInt(ref.style.width);
+              let height = parseInt(ref.style.height);
+              width = Math.min(width, notepadSize.width);
+              height = Math.min(height, notepadSize.height);
               updateImage(img.id, {
-                width: parseInt(ref.style.width),
-                height: parseInt(ref.style.height),
+                width,
+                height,
                 ...position,
-              })
-            }
-            bounds="parent"
+              });
+            }}
+            bounds=".journal-notepad"
             className="journal-image-rnd"
             enableResizing={{
               top: true, right: true, bottom: true, left: true,
@@ -273,6 +308,7 @@ const DailyJournal = () => {
             <div className="journal-image-wrapper">
               <img src={img.src} alt="User upload" className="journal-image" />
               <button className="remove-btn" onClick={() => removeImage(img.id)} title="Remove image">✖</button>
+              <button className="reset-btn" onClick={() => resetImage(img.id)} title="Reset image size/position">↺</button>
             </div>
           </Rnd>
         ))}
